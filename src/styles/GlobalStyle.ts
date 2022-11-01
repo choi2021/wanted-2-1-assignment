@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
   li {
   list-style: none;
   }
+
   button{
     background: none;
     border: none;

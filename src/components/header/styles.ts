@@ -13,7 +13,8 @@ const Header = styled.header`
   border-bottom: 2px solid ${(props) => props.theme.colors.black};
   a {
     font-size: 1.5rem;
-    transform: translateX(-550%);
+    position: absolute;
+    left: 10%;
   }
 `;
 
