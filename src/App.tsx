@@ -1,14 +1,9 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import Theme from './styles/theme';
-import Router from './Router';
+
+import Header from 'components/header/Header';
 
 const App = () => {
-  return (
-    <ThemeProvider theme={Theme}>
-      <Router />
-    </ThemeProvider>
-  );
+  return <Header />;
 };
 
 export default App;
