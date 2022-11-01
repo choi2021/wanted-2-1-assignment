@@ -3,10 +3,11 @@ import React from 'react';
 import S from './styles';
 
 type CategoryType = '전체' | '대형' | '중형' | '소형';
+interface ICategories {
+  categories: CategoryType[];
+}
 
-const categories: CategoryType[] = ['전체', '대형', '중형', '소형'];
-
-const Categories = () => {
+const Categories = ({ categories }: ICategories) => {
   return (
     <S.Nav>
       <ul>
