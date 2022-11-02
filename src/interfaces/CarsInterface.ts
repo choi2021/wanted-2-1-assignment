@@ -1,20 +1,20 @@
 export enum Segment {
-  ENUMC = 'ENUMC',
-  D = 'D',
-  E = 'E',
+  C = '소형',
+  D = '중형',
+  E = '대형',
   SUV = 'SUV',
 }
 export enum FuelType {
-  gasoline = 'gasoline',
-  ev = 'ev',
-  hybrid = 'hybrid',
+  gasoline = '가솔린',
+  ev = '전기',
+  hybrid = '하이브리드',
 }
 
-type Attribute = {
+export type Attribute = {
   brand: string;
   name: string;
-  segment: Segment;
-  fuelType: FuelType;
+  segment: keyof typeof Segment;
+  fuelType: keyof typeof FuelType;
   imageUrl: string;
 };
 
@@ -28,7 +28,7 @@ type AdditionalProducts = {
   amount: number;
 };
 
-export interface Cars {
+export interface Car {
   id: number;
   amount: number;
   attribute: Attribute;

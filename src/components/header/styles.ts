@@ -10,7 +10,7 @@ const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   border-bottom: ${(props) => props.theme.border.bottom};
   a {
     font-size: 1.5rem;

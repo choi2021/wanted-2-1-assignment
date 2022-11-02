@@ -8,6 +8,7 @@ const Layout = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
 `;
 
 const CarList = () => {
@@ -30,7 +31,7 @@ const CarList = () => {
   return (
     <ul>
       {data.map((car) => (
-        <CarItem />
+        <CarItem key={car.id} {...car} />
       ))}
     </ul>
   );
