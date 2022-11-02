@@ -7,6 +7,9 @@ const Theme: DefaultTheme = {
     grey: '#D9D9D9',
     blue: '#0094FF',
   },
+  border: {
+    bottom: '2px solid #000000',
+  },
 };
 
 export default Theme;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-  border-bottom: 2px solid ${(props) => props.theme.colors.black};
+  border-bottom: ${(props) => props.theme.border.bottom};
   padding: 0.5rem 1rem;
   ul {
     list-style: none;

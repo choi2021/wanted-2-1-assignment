@@ -1,9 +1,6 @@
-import { createContext, useContext, Dispatch, useReducer } from 'react';
+import { createContext, Dispatch, useReducer } from 'react';
 import { Cars } from '../interfaces/CarsInterface';
-
-const SET_IS_LOADING = 'SET_IS_LOADING';
-const SET_DATA = 'SET_DATA';
-const SET_ERROR = 'SET_ERROR';
+import ActionType from '../interfaces/ActionEnum';
 
 type State = {
   isLoading: boolean;
@@ -11,13 +8,10 @@ type State = {
   error: string;
 };
 
-type Action = {
-  type: string;
-  data: Cars[];
-  error: string;
-  isLoading: boolean;
-};
-
+type Action =
+  | { type: ActionType.SET_DATA; data: Cars[] }
+  | { type: ActionType.SET_IS_LOADING }
+  | { type: ActionType.SET_ERROR; error: string };
 type CarsDistpatch = Dispatch<Action>;
 
 const initialState = {
@@ -26,22 +20,22 @@ const initialState = {
   error: '',
 };
 
-const CarsStateContext = createContext<State | null>(initialState);
-const CarsDispatchContext = createContext<CarsDistpatch | null>(null);
+export const CarsStateContext = createContext<State | null>(initialState);
+export const CarsDispatchContext = createContext<CarsDistpatch | null>(null);
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case SET_IS_LOADING:
+    case ActionType.SET_IS_LOADING:
       return {
         ...state,
-        isLoading: action.isLoading,
+        isLoading: state.isLoading,
       };
-    case SET_DATA:
+    case ActionType.SET_DATA:
       return {
         ...state,
         data: action.data,
       };
-    case SET_ERROR:
+    case ActionType.SET_ERROR:
       return {
         ...state,
         error: action.error,
@@ -49,18 +43,6 @@ const reducer = (state: State, action: Action): State => {
     default:
       throw new Error('Unknown Action');
   }
-};
-
-export const useCarsState = () => {
-  const state = useContext(CarsStateContext);
-  if (!state) throw new Error("Can't find State Provider");
-  return state;
-};
-
-export const useCarsDispatch = () => {
-  const dispatch = useContext(CarsDispatchContext);
-  if (!dispatch) throw new Error("Can't find Dispatch Provider");
-  return dispatch;
 };
 
 export const CarsProvider = ({ children }: { children: React.ReactNode }) => {

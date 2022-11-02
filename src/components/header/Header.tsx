@@ -21,7 +21,7 @@ const Header = () => {
           <AiOutlineArrowLeft />
         </Link>
       )}
-      <span>{text}</span>
+      <h3>{text}</h3>
     </S.Header>
   );
 };
