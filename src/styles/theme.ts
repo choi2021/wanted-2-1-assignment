@@ -9,7 +9,7 @@ const Theme: DefaultTheme = {
     white: 'white',
   },
   border: {
-    bottom: '2px solid #000000',
+    bottom: '1px solid #000000',
   },
 };
 

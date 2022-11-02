@@ -9,10 +9,10 @@ const Btn = styled.button<{ isSelected: boolean }>`
   border: none;
   font-weight: bold;
   border-radius: 1rem;
-  padding: 0.3rem 1.3rem;
+  padding: 0.5rem 1rem;
   margin-right: 0.5rem;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 `;
 
 const S = {

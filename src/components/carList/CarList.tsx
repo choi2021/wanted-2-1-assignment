@@ -1,32 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
+import S from './styles';
 import CarItem from '../carItem/CarItem';
 import { useCarsState, useCarsValue } from '../../hooks/useCars';
-
-const Layout = styled.section`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow-y: auto;
-`;
 
 const CarList = () => {
   const { isLoading, error } = useCarsState();
   const data = useCarsValue();
   if (isLoading) {
     return (
-      <Layout>
+      <S.Layout>
         <h3>불러오는 중</h3>
-      </Layout>
+      </S.Layout>
     );
   }
 
   if (data.length === 0) {
     return (
-      <Layout>
+      <S.Layout>
         <h3>차량이 없습니다.</h3>
-      </Layout>
+      </S.Layout>
     );
   }
   return (
