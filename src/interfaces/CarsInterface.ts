@@ -1,10 +1,10 @@
-enum Segment {
+export enum Segment {
   ENUMC = 'ENUMC',
   D = 'D',
   E = 'E',
   SUV = 'SUV',
 }
-enum FuelType {
+export enum FuelType {
   gasoline = 'gasoline',
   ev = 'ev',
   hybrid = 'hybrid',

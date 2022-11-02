@@ -11,12 +11,12 @@ type State = {
   error: string;
 };
 
-interface Action {
+type Action = {
   type: string;
   data: Cars[];
   error: string;
   isLoading: boolean;
-}
+};
 
 type CarsDistpatch = Dispatch<Action>;
 
