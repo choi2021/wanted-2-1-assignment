@@ -27,6 +27,8 @@ const Metadata = styled.div`
 
 const ImgBox = styled.div`
   width: 50%;
+  position: relative;
+  background-color: ${(props) => props.theme.colors.grey};
   img {
     max-width: 100%;
   }
@@ -40,7 +42,8 @@ const Tag = styled.div`
   position: absolute;
   color: ${(props) => props.theme.colors.white};
   font-weight: bold;
-  right: 10px;
+  right: -10px;
+  top: -10px;
 `;
 
 const S = {

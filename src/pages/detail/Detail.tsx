@@ -1,15 +1,8 @@
-import CarInfo from 'components/detailInfo/DetailInfo';
 import TitleInfo from 'components/tItleInfo/TitleInfo';
-import React from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router';
-import styled from 'styled-components';
-import { useCarsState } from '../hooks/useCars';
-import DetailInfo from '../components/detailInfo/DetailInfo';
-
-const Img = styled.img`
-  max-width: 100%;
-  background-color: grey;
-`;
+import { useCarsState } from '../../hooks/useCars';
+import DetailInfo from '../../components/detailInfo/DetailInfo';
+import S from './styles';
 
 enum TitleEnum {
   attribute = '차량정보',
@@ -19,20 +12,33 @@ enum TitleEnum {
 
 const Detail = () => {
   const { id } = useParams();
-  const { data } = useCarsState();
+  const { data, isLoading } = useCarsState();
   const navigate = useNavigate();
   if (!id) {
     throw new Error('url 오류입니다.');
   }
+
   const car = data.find((item) => item.id === +id);
-  if (!car) {
-    throw new Error('잘못된 url입니다.');
+  if (isLoading) {
+    return (
+      <S.Layout>
+        <h3>불러오는 중</h3>
+      </S.Layout>
+    );
   }
+  if (!car) {
+    return (
+      <S.Layout>
+        <h3>url을 확인해주세요</h3>
+      </S.Layout>
+    );
+  }
+
   const { amount, attribute, startDate, insurance, additionalProducts } = car;
 
   return (
     <section>
-      <Img src={attribute.imageUrl} alt="car_image" />
+      <S.Img src={attribute.imageUrl} alt="car_image" />
       <TitleInfo attribute={attribute} amount={amount} />
       <DetailInfo
         title={TitleEnum.attribute}

@@ -1,13 +1,16 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { CarsProvider } from 'context/carsContext';
+import NotFound from 'pages/notfound/NotFound';
 import App from './App';
 import Home from './pages/home/Home';
-import Detail from './pages/Detail';
+import Detail from './pages/detail/Detail';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
@@ -22,7 +25,11 @@ const router = createBrowserRouter([
 ]);
 
 const Router = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <CarsProvider>
+      <RouterProvider router={router} />
+    </CarsProvider>
+  );
 };
 
 export default Router;

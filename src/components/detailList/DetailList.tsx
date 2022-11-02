@@ -1,11 +1,8 @@
 import DetailItem from 'components/detailItem/DetailItem';
 import {
   AdditionalProductsType,
-  FuelEnum,
   InsuranceType,
-  SegmentEnum,
 } from 'interfaces/CarsInterface';
-import React from 'react';
 
 type AttributeArrayType = {
   name: string;
@@ -21,7 +18,7 @@ const DetailList = ({ infoArray }: DetailListProps) => {
   return (
     <ul>
       {infoArray.map((item) => (
-        <DetailItem {...item} />
+        <DetailItem key={item.name} {...item} />
       ))}
     </ul>
   );
