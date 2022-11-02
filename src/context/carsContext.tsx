@@ -12,6 +12,7 @@ type Action =
   | { type: ActionType.SET_DATA; data: Car[] }
   | { type: ActionType.SET_IS_LOADING }
   | { type: ActionType.SET_ERROR; error: string };
+
 type CarsDistpatch = Dispatch<Action>;
 
 const initialState = {
@@ -46,9 +47,9 @@ const reducer = (state: State, action: Action): State => {
 };
 
 export const CarsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cars, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <CarsStateContext.Provider value={cars}>
+    <CarsStateContext.Provider value={state}>
       <CarsDispatchContext.Provider value={dispatch}>
         {children}
       </CarsDispatchContext.Provider>

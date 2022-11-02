@@ -1,19 +1,15 @@
 import Category from 'components/category/Category';
+import { CategoryType } from 'interfaces/CarsInterface';
 import React from 'react';
 import S from './styles';
 
-type CategoryType = '전체' | '대형' | '중형' | '소형';
-
-interface ICategories {
-  categories: CategoryType[];
-}
-
-const Categories = ({ categories }: ICategories) => {
+const categories: CategoryType[] = ['전체', '대형', '중형', '소형'];
+const Categories = () => {
   return (
     <S.Nav>
       <ul>
-        {categories.map((category) => (
-          <Category key={category} text={category} category={category} />
+        {categories.map((item) => (
+          <Category key={item} text={item} />
         ))}
       </ul>
     </S.Nav>

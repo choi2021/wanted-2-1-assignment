@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CarItem from '../carItem/CarItem';
-import { useCarsState } from '../../hooks/useCars';
+import { useCarsState, useCarsValue } from '../../hooks/useCars';
 
 const Layout = styled.section`
   height: 100%;
@@ -12,7 +12,8 @@ const Layout = styled.section`
 `;
 
 const CarList = () => {
-  const { data, isLoading } = useCarsState();
+  const { isLoading, error } = useCarsState();
+  const data = useCarsValue();
   if (isLoading) {
     return (
       <Layout>

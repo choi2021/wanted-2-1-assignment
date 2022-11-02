@@ -1,15 +1,20 @@
+import { useCategory } from 'hooks/useCars';
+import { CategoryType } from 'interfaces/CarsInterface';
 import React from 'react';
 import S from './styles';
 
-interface ICategory {
-  text: string;
-  category: string;
+interface CategoryProps {
+  text: CategoryType;
 }
 
-const Category = ({ text, category }: ICategory) => {
+const Category = ({ text }: CategoryProps) => {
+  const { category, setCategory } = useCategory();
+  const handleClick = () => {
+    setCategory(text);
+  };
   return (
     <li>
-      <S.Btn type="button" isSelected={category === text}>
+      <S.Btn type="button" isSelected={category === text} onClick={handleClick}>
         {text}
       </S.Btn>
     </li>
