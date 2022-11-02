@@ -22,7 +22,6 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     outline: inherit;
   }
-
 `;
 
 export default GlobalStyle;

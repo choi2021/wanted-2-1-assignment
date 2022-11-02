@@ -12,5 +12,6 @@ declare module 'styled-components' {
     border: {
       bottom: string;
     };
+    padding: string;
   }
 }

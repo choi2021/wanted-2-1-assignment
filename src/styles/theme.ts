@@ -11,6 +11,7 @@ const Theme: DefaultTheme = {
   border: {
     bottom: '1px solid #000000',
   },
+  padding: '1.3rem',
 };
 
 export default Theme;

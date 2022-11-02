@@ -1,31 +1,31 @@
 export type CategoryType = '전체' | '대형' | '중형' | '소형';
 
-export enum Segment {
+export enum SegmentEnum {
   C = '소형',
   D = '중형',
   E = '대형',
   SUV = 'SUV',
 }
-export enum FuelType {
+export enum FuelEnum {
   gasoline = '가솔린',
   ev = '전기',
   hybrid = '하이브리드',
 }
 
-export type Attribute = {
+export type AttributeType = {
   brand: string;
   name: string;
-  segment: keyof typeof Segment;
-  fuelType: keyof typeof FuelType;
+  segment: keyof typeof SegmentEnum;
+  fuelType: keyof typeof FuelEnum;
   imageUrl: string;
 };
 
-type Insurance = {
+export type InsuranceType = {
   name: string;
   description: string;
 };
 
-type AdditionalProducts = {
+export type AdditionalProductsType = {
   name: string;
   amount: number;
 };
@@ -33,9 +33,9 @@ type AdditionalProducts = {
 export interface Car {
   id: number;
   amount: number;
-  attribute: Attribute;
+  attribute: AttributeType;
   startDate: Date;
   createdAt: Date;
-  insurance?: Insurance[];
-  additionalProducts?: AdditionalProducts[];
+  insurance?: InsuranceType[];
+  additionalProducts?: AdditionalProductsType[];
 }

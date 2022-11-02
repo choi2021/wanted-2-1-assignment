@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { Car, FuelType, Segment } from 'interfaces/CarsInterface';
+import { Car, FuelEnum, SegmentEnum } from 'interfaces/CarsInterface';
 import createAxiosInstance from './axiosUtils';
 
 const BASE_URL = 'https://preonboarding.platdev.net/api/cars';
@@ -11,7 +11,7 @@ type GetCarsResponse = {
 class CarsAPI {
   constructor(private axiosInstance: AxiosInstance) {}
 
-  async getCars(fuelType?: FuelType, segment?: Segment) {
+  async getCars(fuelType?: FuelEnum, segment?: SegmentEnum) {
     try {
       const { data } = await this.axiosInstance.get<GetCarsResponse>(BASE_URL, {
         params: {

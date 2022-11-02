@@ -1,4 +1,4 @@
-import { Attribute, Car, FuelType, Segment } from 'interfaces/CarsInterface';
+import { Car, FuelEnum, SegmentEnum } from 'interfaces/CarsInterface';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import S from './styles';
@@ -9,13 +9,13 @@ const CarItem = ({ attribute, amount, id, createdAt }: Car) => {
   const iswithInOneday = checkWithinOneday(createdAt);
   return (
     <S.Layout>
-      <Link to={`/details/${id}`}>
+      <Link to={`/detail/${id}`}>
         <S.Metadata>
           <div>
             <h3>{brand}</h3>
             <h3>{name}</h3>
           </div>
-          <p>{`${Segment[segment]} / ${FuelType[fuelType]}`}</p>
+          <p>{`${SegmentEnum[segment]} / ${FuelEnum[fuelType]}`}</p>
           <p>월 {amount.toLocaleString()} 원 부터</p>
         </S.Metadata>
         <S.ImgBox>

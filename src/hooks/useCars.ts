@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Segment } from 'interfaces/CarsInterface';
+import { SegmentEnum } from 'interfaces/CarsInterface';
 import { CarsDispatchContext, CarsStateContext } from '../context/carsContext';
 import { CategoryContext } from '../context/categoryContext';
 
@@ -25,7 +25,7 @@ export const useCarsValue = () => {
   if (category === '전체') return state.data;
 
   const filterd = state?.data.filter(
-    (car) => Segment[car.attribute.segment] === category
+    (car) => SegmentEnum[car.attribute.segment] === category
   );
   return filterd;
 };
