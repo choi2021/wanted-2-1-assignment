@@ -11,7 +11,7 @@ import carsAPI from '../../service/carsService';
 const Home = () => {
   const dispatch = useCarsDispatch();
   const getList = async () => {
-    dispatch({ type: ActionType.SET_IS_LOADING });
+    dispatch({ type: ActionType.SET_IS_LOADING, isLoading: true });
     try {
       const response = await carsAPI.getCars();
       if (response) {
@@ -20,7 +20,7 @@ const Home = () => {
     } catch (e) {
       console.log(e);
     }
-    dispatch({ type: ActionType.SET_IS_LOADING });
+    dispatch({ type: ActionType.SET_IS_LOADING, isLoading: false });
   };
   useEffect(() => {
     getList();

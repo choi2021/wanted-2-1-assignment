@@ -10,7 +10,7 @@ type State = {
 
 type Action =
   | { type: ActionType.SET_DATA; data: Car[] }
-  | { type: ActionType.SET_IS_LOADING }
+  | { type: ActionType.SET_IS_LOADING; isLoading: boolean }
   | { type: ActionType.SET_ERROR; error: string };
 
 type CarsDistpatch = Dispatch<Action>;
@@ -29,7 +29,7 @@ const reducer = (state: State, action: Action): State => {
     case ActionType.SET_IS_LOADING:
       return {
         ...state,
-        isLoading: state.isLoading,
+        isLoading: action.isLoading,
       };
     case ActionType.SET_DATA:
       return {
