@@ -12,7 +12,7 @@ enum TitleEnum {
 
 const Detail = () => {
   const { id } = useParams();
-  const { data, isLoading } = useCarsState();
+  const { data, isLoading, error } = useCarsState();
   const navigate = useNavigate();
   if (!id) {
     throw new Error('url 오류입니다.');
@@ -30,6 +30,13 @@ const Detail = () => {
     return (
       <S.Layout>
         <h3>url을 확인해주세요</h3>
+      </S.Layout>
+    );
+  }
+  if (error) {
+    return (
+      <S.Layout>
+        <h3>{error}</h3>
       </S.Layout>
     );
   }

@@ -1,6 +1,7 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance } from 'axios';
 import { Car, FuelEnum, SegmentEnum } from 'interfaces/CarsInterface';
 import createAxiosInstance from './axiosUtils';
+import HTTPError from '../network/httpError';
 
 const BASE_URL = 'https://preonboarding.platdev.net/api/cars';
 
@@ -21,9 +22,11 @@ class CarsAPI {
       });
       return data;
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        throw new Error(`${error.message}`);
+      const { response } = error as unknown as AxiosError;
+      if (response) {
+        throw new HTTPError(response?.status, response?.statusText);
       }
+      throw new Error('Unknown Error');
     }
   }
 }

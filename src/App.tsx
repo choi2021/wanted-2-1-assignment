@@ -1,10 +1,10 @@
-import React, { useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from 'components/header/Header';
-import { CarsProvider } from 'context/carsContext';
 import { useCarsDispatch } from 'hooks/useCars';
 import ActionType from 'interfaces/ActionEnum';
 import carsAPI from './service/carsService';
+import HTTPError from './network/httpError';
 
 const App = () => {
   const dispatch = useCarsDispatch();
@@ -16,9 +16,12 @@ const App = () => {
         dispatch({ type: ActionType.SET_DATA, data: response?.payload });
       }
     } catch (e) {
-      console.error(e);
+      if (e instanceof HTTPError) {
+        dispatch({ type: ActionType.SET_ERROR, error: e.errorMessage });
+      }
+    } finally {
+      dispatch({ type: ActionType.SET_IS_LOADING, isLoading: false });
     }
-    dispatch({ type: ActionType.SET_IS_LOADING, isLoading: false });
   }, [dispatch]);
   useEffect(() => {
     getList();

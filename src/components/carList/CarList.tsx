@@ -14,6 +14,14 @@ const CarList = () => {
     );
   }
 
+  if (error) {
+    return (
+      <S.Layout>
+        <h3>{error}</h3>
+      </S.Layout>
+    );
+  }
+
   if (data.length === 0) {
     return (
       <S.Layout>
