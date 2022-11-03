@@ -1,20 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { hydrate, render } from 'react-dom';
 import './index.css';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'styles/GlobalStyle';
 import Router from './Router';
 import Theme from './styles/theme';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const container = document.getElementById('root') as HTMLElement;
+const root = ReactDOM.createRoot(container);
 
-root.render(
-  <React.StrictMode>
-    <ThemeProvider theme={Theme}>
-      <GlobalStyle />
-      <Router />
-    </ThemeProvider>
-  </React.StrictMode>
-);
+if (container.hasChildNodes()) {
+  ReactDOM.hydrateRoot(
+    container,
+    <React.StrictMode>
+      <ThemeProvider theme={Theme}>
+        <GlobalStyle />
+        <Router />
+      </ThemeProvider>
+    </React.StrictMode>
+  );
+} else {
+  root.render(
+    <React.StrictMode>
+      <ThemeProvider theme={Theme}>
+        <GlobalStyle />
+        <Router />
+      </ThemeProvider>
+    </React.StrictMode>
+  );
+}
