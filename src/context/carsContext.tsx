@@ -1,6 +1,6 @@
 import { createContext, Dispatch, useReducer } from 'react';
-import { Car } from '../interfaces/CarsInterface';
-import ActionType from '../interfaces/ActionEnum';
+import { Car } from '../types/CarsInterface';
+import ActionType from '../types/ActionEnum';
 
 type State = {
   isLoading: boolean;

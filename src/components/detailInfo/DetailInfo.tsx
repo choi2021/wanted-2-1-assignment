@@ -4,7 +4,7 @@ import {
   FuelEnum,
   InsuranceType,
   SegmentEnum,
-} from 'interfaces/CarsInterface';
+} from 'types/CarsInterface';
 import S from './styles';
 import DetailList from '../detailList/DetailList';
 

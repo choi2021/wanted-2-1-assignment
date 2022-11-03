@@ -1,7 +1,7 @@
 import { useEffect, useCallback } from 'react';
 import Header from 'components/header/Header';
 import { useCarsDispatch } from 'hooks/useCars';
-import ActionType from 'interfaces/ActionEnum';
+import ActionType from 'types/ActionEnum';
 import { Outlet } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import carsAPI from './service/carsService';

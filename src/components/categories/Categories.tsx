@@ -1,5 +1,5 @@
 import Category from 'components/category/Category';
-import { CategoryType } from 'interfaces/CarsInterface';
+import { CategoryType } from 'types/CarsInterface';
 import S from './styles';
 
 const categories: CategoryType[] = ['전체', 'SUV', '대형', '중형', '소형'];

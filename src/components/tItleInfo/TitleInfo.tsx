@@ -1,5 +1,5 @@
 import React from 'react';
-import { AttributeType } from 'interfaces/CarsInterface';
+import { AttributeType } from 'types/CarsInterface';
 import S from './styles';
 
 interface TitleInfoProps {

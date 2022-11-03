@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { AttributeType } from 'interfaces/CarsInterface';
+import { AttributeType } from 'types/CarsInterface';
 
 interface MetaProps {
   attribute: AttributeType;

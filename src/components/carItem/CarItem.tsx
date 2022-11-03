@@ -1,4 +1,4 @@
-import { Car, FuelEnum, SegmentEnum } from 'interfaces/CarsInterface';
+import { Car, FuelEnum, SegmentEnum } from 'types/CarsInterface';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import S from './styles';

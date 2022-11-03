@@ -30,7 +30,7 @@ export type AdditionalProductsType = {
   amount: number;
 };
 
-export interface Car {
+export type Car = {
   id: number;
   amount: number;
   attribute: AttributeType;
@@ -38,4 +38,4 @@ export interface Car {
   createdAt: Date;
   insurance?: InsuranceType[];
   additionalProducts?: AdditionalProductsType[];
-}
+};

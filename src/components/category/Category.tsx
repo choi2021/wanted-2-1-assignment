@@ -1,5 +1,5 @@
 import { useCategory } from 'hooks/useCars';
-import { CategoryType } from 'interfaces/CarsInterface';
+import { CategoryType } from 'types/CarsInterface';
 import React from 'react';
 import S from './styles';
 

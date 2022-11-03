@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosInstance } from 'axios';
-import { Car, FuelEnum, SegmentEnum } from 'interfaces/CarsInterface';
+import { Car, FuelEnum, SegmentEnum } from 'types/CarsInterface';
 import createAxiosInstance from './axiosUtils';
 import HTTPError from '../network/httpError';
 

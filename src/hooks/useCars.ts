@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SegmentEnum } from 'interfaces/CarsInterface';
+import { SegmentEnum } from 'types/CarsInterface';
 import { CarsDispatchContext, CarsStateContext } from '../context/carsContext';
 import { CategoryContext } from '../context/categoryContext';
 

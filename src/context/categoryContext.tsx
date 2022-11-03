@@ -1,5 +1,5 @@
 import { createContext, useState, useMemo, Dispatch } from 'react';
-import { CategoryType } from 'interfaces/CarsInterface';
+import { CategoryType } from 'types/CarsInterface';
 
 const initialState = {
   category: '전체',

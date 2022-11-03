@@ -1,8 +1,5 @@
 import DetailItem from 'components/detailItem/DetailItem';
-import {
-  AdditionalProductsType,
-  InsuranceType,
-} from 'interfaces/CarsInterface';
+import { AdditionalProductsType, InsuranceType } from 'types/CarsInterface';
 
 type AttributeArrayType = {
   name: string;
