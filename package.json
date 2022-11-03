@@ -71,7 +71,7 @@
   "reactSnap": {
     "include": [
       "/",
-      "/detail/:id"
+      "/detail/"
     ]
   }
 }
