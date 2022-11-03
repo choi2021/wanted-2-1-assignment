@@ -110,7 +110,7 @@ $ npm start
 
 ## 🔗 위키 링크
 
-[ 보러가기]()
+[위키 보러가기](https://github.com/wanted-freeOnBoarding-8/pre-onboarding-7th-2-8/wiki/Dev-%EB%85%B8%ED%8A%B8)
 
 ## 🔗 배포 링크
 
