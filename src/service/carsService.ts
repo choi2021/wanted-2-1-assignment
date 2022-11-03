@@ -1,12 +1,12 @@
 import axios, { AxiosError, AxiosInstance } from 'axios';
-import { Car, FuelEnum, SegmentEnum } from 'types/CarsInterface';
+import { CarType, FuelEnum, SegmentEnum } from 'types/CarsInterface';
 import createAxiosInstance from './axiosUtils';
 import HTTPError from '../network/httpError';
 
 const BASE_URL = 'https://preonboarding.platdev.net/api/cars';
 
 type GetCarsResponse = {
-  payload: Car[];
+  payload: CarType[];
 };
 
 class CarsAPI {

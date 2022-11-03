@@ -1,15 +1,15 @@
 import { createContext, Dispatch, useReducer } from 'react';
-import { Car } from '../types/CarsInterface';
+import { CarType } from '../types/CarsInterface';
 import ActionType from '../types/ActionEnum';
 
 type State = {
   isLoading: boolean;
-  data: Car[];
+  data: CarType[];
   error: string;
 };
 
 type Action =
-  | { type: ActionType.SET_DATA; data: Car[] }
+  | { type: ActionType.SET_DATA; data: CarType[] }
   | { type: ActionType.SET_IS_LOADING; isLoading: boolean }
   | { type: ActionType.SET_ERROR; error: string };
 

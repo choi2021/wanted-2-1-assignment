@@ -6,11 +6,13 @@ const categories: CategoryType[] = ['전체', 'SUV', '대형', '중형', '소형
 const Categories = () => {
   return (
     <S.Nav>
-      <ul>
-        {categories.map((item) => (
-          <Category key={item} text={item} />
-        ))}
-      </ul>
+      <S.Wrapper>
+        <ul>
+          {categories.map((item) => (
+            <Category key={item} text={item} />
+          ))}
+        </ul>
+      </S.Wrapper>
     </S.Nav>
   );
 };

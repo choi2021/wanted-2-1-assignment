@@ -30,7 +30,7 @@ export type AdditionalProductsType = {
   amount: number;
 };
 
-export type Car = {
+export type CarType = {
   id: number;
   amount: number;
   attribute: AttributeType;

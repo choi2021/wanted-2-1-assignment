@@ -1,10 +1,9 @@
-import { Car, FuelEnum, SegmentEnum } from 'types/CarsInterface';
-import React from 'react';
+import { CarType, FuelEnum, SegmentEnum } from 'types/CarsInterface';
 import { Link } from 'react-router-dom';
 import S from './styles';
 import checkWithinOneday from '../../utils/checkWithinOneday';
 
-const CarItem = ({ attribute, amount, id, createdAt }: Car) => {
+const CarItem = ({ attribute, amount, id, createdAt }: CarType) => {
   const { brand, name, segment, fuelType, imageUrl } = attribute;
   const iswithInOneday = checkWithinOneday(createdAt);
   return (
