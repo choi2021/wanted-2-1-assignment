@@ -1,8 +1,9 @@
 import { useEffect, useCallback } from 'react';
-import { Outlet } from 'react-router-dom';
 import Header from 'components/header/Header';
 import { useCarsDispatch } from 'hooks/useCars';
 import ActionType from 'interfaces/ActionEnum';
+import { Outlet } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import carsAPI from './service/carsService';
 import HTTPError from './network/httpError';
 
@@ -30,7 +31,9 @@ const App = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <HelmetProvider>
+        <Outlet />
+      </HelmetProvider>
     </>
   );
 };

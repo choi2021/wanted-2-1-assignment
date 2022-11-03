@@ -1,8 +1,9 @@
 import TitleInfo from 'components/tItleInfo/TitleInfo';
-import { Navigate, useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useCarsState } from '../../hooks/useCars';
 import DetailInfo from '../../components/detailInfo/DetailInfo';
 import S from './styles';
+import Meta from '../../components/meta/Meta';
 
 enum TitleEnum {
   attribute = '차량정보',
@@ -45,6 +46,7 @@ const Detail = () => {
 
   return (
     <section>
+      <Meta attribute={attribute} amount={amount} />
       <S.Img src={attribute.imageUrl} alt="car_image" />
       <TitleInfo attribute={attribute} amount={amount} />
       <DetailInfo
