@@ -5,6 +5,7 @@ import { AttributeType } from 'interfaces/CarsInterface';
 interface MetaProps {
   attribute: AttributeType;
   amount: number;
+  id: string;
 }
 
 const IMAGE_SIZE = {
@@ -12,13 +13,18 @@ const IMAGE_SIZE = {
   height: 600,
 };
 
-const Meta = ({ attribute, amount }: MetaProps) => {
+const Meta = ({ attribute, amount, id }: MetaProps) => {
   const { brand, name, imageUrl } = attribute;
   return (
     <Helmet>
       <title>{`${brand} ${name}`}</title>
       <meta name="description" content={`월 ${amount}원`} />
+      <meta property="og:type" content="website" />
       <link href={imageUrl} />
+      <meta
+        property="og:url"
+        content={`https://2-1-assignment-test.netlify.app/${id}`}
+      />
       <meta name="og:title" content={`${brand} ${name}`} />
       <meta name="og:description" content={`월 ${amount}원`} />
       <meta property="og:image" content={imageUrl} />

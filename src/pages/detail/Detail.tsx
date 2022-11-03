@@ -46,7 +46,7 @@ const Detail = () => {
 
   return (
     <section>
-      <Meta attribute={attribute} amount={amount} />
+      <Meta attribute={attribute} amount={amount} id={id} />
       <S.Img src={attribute.imageUrl} alt="car_image" />
       <TitleInfo attribute={attribute} amount={amount} />
       <DetailInfo
