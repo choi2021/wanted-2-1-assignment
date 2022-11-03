@@ -194,17 +194,90 @@ $ npm start
 </details>
 
 ## 👍 Best Practice 선정 이유
-- useReducer와 cont
-- Typescript를 활용하여 
-- Hooks 폴더 안에 filter
-- UI 차원에서 가장 완성도가 높아서 
+- useReducer를 사용하여 컴포넌트와 상태 업데이트 로직을 분리하여 컴포넌트 외부에서도 상태 관리를 할 수 있어 선정하였습니다.
+
+```javascript
+type State = {
+  isLoading: boolean;
+  data: CarType[];
+  error: string;
+};
+
+type Action =
+  | { type: ActionType.SET_DATA; data: CarType[] }
+  | { type: ActionType.SET_IS_LOADING; isLoading: boolean }
+  | { type: ActionType.SET_ERROR; error: string };
+
+type CarsDistpatch = Dispatch<Action>;
+
+const initialState = {
+  isLoading: false,
+  data: [],
+  error: '',
+};
+
+export const CarsStateContext = createContext<State | null>(initialState);
+export const CarsDispatchContext = createContext<CarsDistpatch | null>(null);
+
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case ActionType.SET_IS_LOADING:
+      return {
+        ...state,
+        isLoading: action.isLoading,
+      };
+    case ActionType.SET_DATA:
+      return {
+        ...state,
+        data: action.data,
+      };
+    case ActionType.SET_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      };
+    default:
+      throw new Error('Unknown Action');
+  }
+};
+```
+
+- hooks를 활용하여 UI로직과 비지니스로직을 분리하여 추상화 수준을 보다 높였다는 점에서 선정하였습니다.
+
+```javascript
+export const useCarsState = () => {
+  const state = useContext(CarsStateContext);
+  if (!state) throw new Error("Can't find State Provider");
+  return state;
+};
+
+export const useCarsDispatch = () => {
+  const dispatch = useContext(CarsDispatchContext);
+  if (!dispatch) throw new Error("Can't find Dispatch Provider");
+  return dispatch;
+};
+
+export const useCarsValue = () => {
+  const state = useCarsState();
+  const { category } = useContext(CategoryContext);
+
+  if (!state) throw new Error("Can't find StateProvider");
+  if (!category) throw new Error("Can't find CategoryProvider");
+  if (category === '전체') return state.data;
+
+  const filterd = state?.data.filter(
+    (car) => SegmentEnum[car.attribute.segment] === category
+  );
+  return filterd;
+};
+```
 
 ## ✏️ 개선 부분
-- SEO 관련해서 (react-snap을 활용해서 고쳐나간 과정을 적기
-
 하루동안 함께 시행착오를 한 기록을 담았습니다!
 
-## ✏️ action-point 보러가기 []()
+- CRA의 단점을 개선하기 위해 react-helmet과 react-snap을 활용하여 SEO를 보완하였습니다.  
+- 타입추론 등을 통해 효율성을 향상시키고, 타입으로 인한 예상치못한 에러를 줄이기위하여 타입스크립를 사용했습니다.
+- 컴포넌트 내에 비지니스 로직을 분리하여 추상화하기 위해 노력하였습니다.
 
 ## ✨ 주요 기능
 
