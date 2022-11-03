@@ -27,7 +27,6 @@ export const useCarsValue = () => {
     (car) => SegmentEnum[car.attribute.segment] === category
   );
   return filterd;
-  return state.data;
 };
 
 export const useCategory = () => useContext(CategoryContext);

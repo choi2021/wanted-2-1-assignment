@@ -1,4 +1,4 @@
-export type CategoryType = '전체' | '대형' | '중형' | '소형';
+export type CategoryType = '전체' | 'SUV' | '대형' | '중형' | '소형';
 
 export enum SegmentEnum {
   C = '소형',

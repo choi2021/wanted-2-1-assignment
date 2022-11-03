@@ -5,8 +5,7 @@ import {
   InsuranceType,
   SegmentEnum,
 } from 'interfaces/CarsInterface';
-import React from 'react';
-import styled from 'styled-components';
+import S from './styles';
 import DetailList from '../detailList/DetailList';
 
 interface DetailInfoProps {
@@ -15,16 +14,6 @@ interface DetailInfoProps {
   attribute?: AttributeType;
   infoArray?: InsuranceType[] | AdditionalProductsType[];
 }
-
-const Layout = styled.section``;
-
-const TitleBox = styled.div`
-  background-color: ${(props) => props.theme.colors.blue};
-  padding: 0.8rem 1.5rem;
-  color: ${(props) => props.theme.colors.white};
-  font-size: 1.1rem;
-  font-weight: bold;
-`;
 
 const DetailInfo = ({
   title,
@@ -38,11 +27,11 @@ const DetailInfo = ({
     { name: '이용가능일', startDate },
   ];
   return (
-    <Layout>
-      <TitleBox>{title}</TitleBox>
+    <S.Layout>
+      <S.TitleBox>{title}</S.TitleBox>
       {infoArray && <DetailList infoArray={infoArray} />}
       {attributeArray && <DetailList infoArray={attributeArray} />}
-    </Layout>
+    </S.Layout>
   );
 };
 

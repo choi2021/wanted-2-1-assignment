@@ -1,5 +1,5 @@
 import TitleInfo from 'components/tItleInfo/TitleInfo';
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { useCarsState } from '../../hooks/useCars';
 import DetailInfo from '../../components/detailInfo/DetailInfo';
 import S from './styles';
@@ -14,7 +14,6 @@ enum TitleEnum {
 const Detail = () => {
   const { id } = useParams();
   const { data, isLoading, error } = useCarsState();
-  const navigate = useNavigate();
   if (!id) {
     throw new Error('url 오류입니다.');
   }

@@ -20,6 +20,7 @@ const App = () => {
       if (e instanceof HTTPError) {
         dispatch({ type: ActionType.SET_ERROR, error: e.errorMessage });
       }
+      console.error(e);
     } finally {
       dispatch({ type: ActionType.SET_IS_LOADING, isLoading: false });
     }

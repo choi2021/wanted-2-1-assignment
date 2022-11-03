@@ -23,7 +23,7 @@ const Meta = ({ attribute, amount, id }: MetaProps) => {
       <link href={imageUrl} />
       <meta
         property="og:url"
-        content={`https://2-1-assignment-test.netlify.app/${id}`}
+        content={`https://2-1-assignment-test.netlify.app/detail/${id}`}
       />
       <meta name="og:title" content={`${brand} ${name}`} />
       <meta name="og:description" content={`월 ${amount}원`} />

@@ -34,4 +34,5 @@ class CarsAPI {
 const carsAPIinstance = createAxiosInstance(BASE_URL);
 
 const carsAPI = new CarsAPI(carsAPIinstance);
+
 export default carsAPI;
